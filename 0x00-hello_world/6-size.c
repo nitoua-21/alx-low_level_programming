@@ -1,14 +1,13 @@
-/**
- *prints the size of various types
- *on the computer it is compiled and run on.
- */
 #include <stdio.h>
 
 /**
- * main - Entry point
+ *main - Entry point
  *
- * Return: Always 0 (Success)
+ *Description: prints the size of various types
+ *on the computer it is compiled and run on.
+ *Return: Always 0 (Success)
  */
+
 int main(void)
 {
 	printf("Size of a char: %ld byte(s)\n", sizeof(char));
