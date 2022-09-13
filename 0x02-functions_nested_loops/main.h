@@ -3,22 +3,14 @@
 
 
 
-/**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
+/* Writes the character c to stdout */
 int _putchar(char c);
 
-/**
- *alphabet - prints the alphabet in lowercase.
- *
- */
+/*Prints the alphabet in lowercase. */
 void print_alphabet(void);
 
-
+/*Prints 10 times the alphabet in lowercase*/
+void print_alphabet_x10(void);
 
 
 #endif
