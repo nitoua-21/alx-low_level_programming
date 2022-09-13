@@ -14,7 +14,7 @@ int main(void)
 	while (message[i] != '\0')
 	{
 		_putchar(message[i]);
-		i ++;
+		i++;
 	}
 
 	_putchar('\n');
