@@ -40,4 +40,7 @@ int add(int, int);
 /*Prints natural numbers from n to 98 */
 void print_to_98(int n);
 
+/*prints the n times table*/
+void print_times_table(int n);
+
 #endif
