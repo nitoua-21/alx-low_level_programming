@@ -13,7 +13,7 @@ int print_last_digit(int n)
 
 	if (n >= 0)
 		last_digit = n % 10;
-	else if (n >= - 10000)
+	else if (n >= -10000)
 		last_digit = (-1 * n) % 10;
 	else
 		last_digit = (unsigned int) n % 10;
