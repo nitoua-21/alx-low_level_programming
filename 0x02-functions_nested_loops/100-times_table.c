@@ -9,34 +9,44 @@
 
 void print_times_table(int n)
 {
-	int i, j, product;
+	int i, j, k, l, product, ratio, num_digits;
 
 	for (i = 0; i <= n; i++)
 	{
 		for (j = 0; j <= n; j++)
 		{
 			product = i * j;
+			ratio = product / 10;
+			l = 1;
 
-			if (product <= n)
-				_putchar(product + '0');
-			else
+			/* Counts number of digits of n */
+			while (ratio)
 			{
-				_putchar(product / 10 + '0');
-				_putchar(product % 10 + '0');
+				ratio /= 10;
+				l *= 10;
 			}
 
-			if (j < n && (product + i <= n))
+			for (k = l; k > 0; k /= 10)
+				_putchar((product / k) % 10 + '0');
+
+			num_digits = 1;
+			ratio = (product + i) / 10;
+
+			/*Get number of digits*/
+			while (ratio)
 			{
-				_putchar(',');
-				_putchar(' ');
-				_putchar(' ');
+				num_digits++;
+				ratio /= 10;
 			}
-			else if (j < n)
+
+			if (j < n)
 			{
 				_putchar(',');
-				_putchar(' ');
+				for (k = 0; k < 4 - num_digits; k++)
+					_putchar(' ');
 			}
 		}
 		_putchar('\n');
 	}
+
 }
