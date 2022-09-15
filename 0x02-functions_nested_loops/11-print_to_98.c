@@ -8,20 +8,25 @@
 
 void print_to_98(int n)
 {
-	int i;
+	int i, j, k, ratio;
+
+	ratio = n >= 0 ? n / 10 : (n / 10) * -1;
+	j = 1;
+
+	while (ratio)
+	{
+		ratio /= 10;
+		j *= 10;
+	}
 
 	if (n <= 98)
 	{
 		for (i = n; i <= 98; i++)
 		{
-			if (i < 10)
-				_putchar(i + '0');
-			else
-			{
-				_putchar(i / 10 + '0');
-				_putchar(i % 10 + '0');
-			}
-
+			if (i < 0)
+				_putchar('-');
+			for (k = j; k > 0; k /= 10)
+				_putchar(i >= 0 ? (i / k) % 10 + '0' : (-1 *  i / k) % 10 + '0');
 			if (i != 98)
 			{
 				_putchar(',');
@@ -33,18 +38,8 @@ void print_to_98(int n)
 	{
 		for (i = n; i >= 98; i--)
 		{
-			if (i < 100)
-			{
-				_putchar(i / 10 + '0');
-				_putchar(i % 10 + '0');
-			}
-			else
-			{
-				_putchar((i / 10) / 10  + '0');
-				_putchar((i / 10) % 10 + '0');
-				_putchar(i % 10 + '0');
-			}
-
+			for (k = j; k > 0; k /= 10)
+				_putchar((i / k) % 10 + '0');
 			if (i != 98)
 			{
 				_putchar(',');
@@ -52,6 +47,5 @@ void print_to_98(int n)
 			}
 		}
 	}
-
 	_putchar('\n');
 }
