@@ -1,5 +1,43 @@
 #include "main.h"
 
+
+/**
+ *digit_count - Counts the number of digits of an integer
+ *@n: the number to count digits
+ *
+ *Return: count of digits
+ */
+int digit_count(int n)
+{
+	int count = 0;
+
+	do {
+		n /= 10;
+		count++;
+	} while (n != 0);
+
+	return (count);
+}
+
+/**
+ *print_int - prints an integer on the stdout
+ *@n: integer to be printed
+ */
+void print_int(int n)
+{
+	int i, j, count, divider;
+
+	count = digit_count(n);
+	divider = 1;
+	/*Evaluate 10 to the power count - 1*/
+	for (i = 1; i < count; i++)
+		divider *= 10;
+	if (n < 0)
+		_putchar('-');
+	for (j = divider; j > 0; j /= 10)
+		_putchar(n >= 0 ? (n / j) % 10 + '0' : (-1 * n / j) % 10 + '0');
+}
+
 /**
  *print_to_98 - prints all natural numbers from n to 98.
  *@n: the first number to be printed
@@ -8,25 +46,14 @@
 
 void print_to_98(int n)
 {
-	int i, j, k, ratio;
-
-	ratio = n >= 0 ? n / 10 : (n / 10) * -1;
-	j = 1;
-
-	while (ratio)
-	{
-		ratio /= 10;
-		j *= 10;
-	}
+	int i;
 
 	if (n <= 98)
 	{
 		for (i = n; i <= 98; i++)
 		{
-			if (i < 0)
-				_putchar('-');
-			for (k = j; k > 0; k /= 10)
-				_putchar(i >= 0 ? (i / k) % 10 + '0' : (-1 *  i / k) % 10 + '0');
+			print_int(i);
+
 			if (i != 98)
 			{
 				_putchar(',');
@@ -38,8 +65,8 @@ void print_to_98(int n)
 	{
 		for (i = n; i >= 98; i--)
 		{
-			for (k = j; k > 0; k /= 10)
-				_putchar((i / k) % 10 + '0');
+			print_int(i);
+
 			if (i != 98)
 			{
 				_putchar(',');
