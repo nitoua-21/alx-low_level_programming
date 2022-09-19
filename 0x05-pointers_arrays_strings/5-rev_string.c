@@ -28,7 +28,7 @@ void rev_string(char *s)
 {
 	int i, j, length;
 
-	char tmp[50];
+	char tmp[500];
 
 	/*Find the length of the string*/
 	length = _strlen(s);
