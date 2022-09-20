@@ -1,4 +1,3 @@
-
 /**
  *_strlen - returns the length of string.
  *@s: string variable
@@ -40,12 +39,8 @@ char *_strcpy(char *dest, char *src)
 	{
 		dest[i] = src[i];
 	}
-
-	dest[n - 1] = '\0';
+	for (; i < n; i++)
+		dest[i] = '\0';
 
 	return (dest);
-
-
-
 }
-
