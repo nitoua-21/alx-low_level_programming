@@ -48,7 +48,7 @@ char *cap_string(char *str)
 		str[0] -= 32;
 
 	/*Capitalize the rest of the letters*/
-	for (i = 1; str[i] != '\0'; i++)
+	for (i = 0; str[i] != '\0'; i++)
 	{
 		if (is_sep(str[i]) && is_lower(str[i + 1]) && str[i + 1] != '\0')
 			str[i + 1] -= 32;
