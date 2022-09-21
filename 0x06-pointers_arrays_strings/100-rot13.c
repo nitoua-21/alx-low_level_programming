@@ -1,4 +1,4 @@
-/***
+/**
  *rot13 - encodes a string using rot13.
  *@str: string to be encoded
  *
