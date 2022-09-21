@@ -2,7 +2,7 @@
  *is_sep - checks is a character is a word separator
  *@c: character to be checked
  *
- *return: 1 if c is a separator
+ *Return: 1 if c is a separator
  *0 if c is not.
  */
 int is_sep(char c)
