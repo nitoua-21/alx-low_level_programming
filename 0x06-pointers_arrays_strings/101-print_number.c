@@ -5,10 +5,14 @@
  */
 void print_number(int n)
 {
+	int mask;
+
 	if (n < 0)
 	{
 		_putchar('-');
-		n = n *  -1;
+		mask = n >> (sizeof(int) * 8 - 1);
+
+		n = (mask + n) ^ mask;
 	}
 
 	if (n / 10)
