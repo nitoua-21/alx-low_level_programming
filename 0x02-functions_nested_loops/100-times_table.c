@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  *print_times_table - prints n times table,
  *staring with 0.
