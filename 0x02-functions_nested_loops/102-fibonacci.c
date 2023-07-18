@@ -18,13 +18,13 @@ int main(void)
 	b = 2;
 
 
-	for (i = 0; i < 50; i++)
+	for (i = 0; i < 25; i++)
 	{
 		printf("%li, %li", a, b);
 		a += b;
 		b += a;
 
-		if (i < 49)
+		if (i < 24)
 			printf(", ");
 
 	}
