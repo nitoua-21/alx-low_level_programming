@@ -11,8 +11,8 @@
 int main(void)
 {
 	int i;
-	long long int a;
-	long long int b;
+	long int a;
+	long int b;
 
 	a = 1;
 	b = 2;
