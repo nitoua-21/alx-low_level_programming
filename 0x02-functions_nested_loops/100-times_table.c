@@ -1,4 +1,31 @@
 #include "main.h"
+
+/**
+ *print_int - prints the number to the stdout.
+ *@n: integer parameter
+ */
+
+void print_int(int n)
+{
+	if (n < 10)
+	{
+		_putchar(n + '0');
+	}
+	else if (n < 100)
+	{
+		_putchar((n / 10) + '0');
+		_putchar((n % 10) + '0');
+	}
+	else
+	{
+		_putchar((n / 100) + '0');
+		_putchar((n / 10) % 10 + '0');
+		_putchar((n % 10) + '0');
+
+	}
+}
+
+
 /**
  *print_times_table - prints n times table,
  *staring with 0.
@@ -11,7 +38,7 @@ void print_times_table(int n)
 	int j;
 	int prod;
 
-	if (n > 0 && n <= 15)
+	if (n >= 0 && n <= 15)
 	{
 		for (i = 0; i <= n; i++)
 		{
@@ -30,21 +57,12 @@ void print_times_table(int n)
 					{
 						_putchar(' ');
 						_putchar(' ');
-						_putchar(prod + '0');
 					}
 					else if (prod < 100)
 					{
 						_putchar(' ');
-						_putchar((prod / 10) + '0');
-						_putchar((prod % 10) + '0');
 					}
-					else
-					{
-						_putchar((prod / 100) + '0');
-						_putchar((prod / 10) % 10 + '0');
-						_putchar((prod % 10) + '0');
-
-					}
+					print_int(prod);
 				}
 			}
 			_putchar('\n');
