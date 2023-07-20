@@ -27,7 +27,7 @@ void print_number(int n)
 	do {
 		num -= (unsigned int) num;
 		num = num * 10;
-		_putchar('0' + (int) num);
+		_putchar('0' + (unsigned int) num);
 		count--;
 	} while (count > 0);
 
