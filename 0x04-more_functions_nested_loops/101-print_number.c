@@ -10,22 +10,19 @@ void print_number(int n)
 	double num;
 
 	count = 0;
+	num = n;
 
 	if (n < 0)
 	{
 		_putchar('-');
-		num = n * -1;
-	}
-	else
-	{
-		num = n;
+		num *= -1;
 	}
 
 
 	do {
 		num /= 10;
 		count++;
-	} while (num > 1);
+	} while (num >= 1);
 
 	do {
 		num -= (unsigned int) num;
