@@ -9,13 +9,16 @@ void print_number(int n)
 	int count;
 	double num;
 
-	num = n;
 	count = 0;
 
 	if (n < 0)
 	{
 		_putchar('-');
-		num *= -1;
+		num = n * -1;
+	}
+	else
+	{
+		num = n;
 	}
 
 
