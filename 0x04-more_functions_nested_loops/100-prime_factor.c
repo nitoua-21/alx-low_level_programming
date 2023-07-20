@@ -9,7 +9,7 @@
 
 int main(void)
 {
-	unsigned long number, i;
+	unsigned long int number, i;
 
 	number = 612852475143;
 	i = 2;
@@ -27,6 +27,8 @@ int main(void)
 		}
 
 	}
+
+	printf("%lu\n", number);
 
 	return (0);
 }
