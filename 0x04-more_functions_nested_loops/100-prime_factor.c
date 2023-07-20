@@ -14,7 +14,7 @@ int main(void)
 	number = 612852475143;
 	i = 2;
 
-	while (i < number / 2)
+	while (i < number)
 	{
 		if (number % i == 0)
 		{
