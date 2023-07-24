@@ -32,7 +32,7 @@ void puts_half(char *str)
 	/*Get length of the str*/
 	length = _strlen(str);
 
-	i = length % 2 == 0 ? length / 2 : (length - 1) / 2;
+	i = length % 2 == 0 ? length / 2 : (length + 1) / 2;
 
 	while (str[i] != '\0')
 	{
