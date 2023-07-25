@@ -11,11 +11,11 @@
 int main(void)
 {
 	srand(time(NULL));
-	const char valid_chars[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-	const int password_length = 8;
-	int random_index;
+	char *valid_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+	int password_length = 8;
+	int random_index, i;
 
-	for (int i = 0; i < password_length; i++)
+	for (i = 0; i < password_length; i++)
 	{
 		random_index = rand() % (sizeof(valid_chars) - 1);
 		printf("%c", valid_chars[random_index]);
