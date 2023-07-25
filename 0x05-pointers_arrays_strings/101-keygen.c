@@ -10,12 +10,14 @@
  */
 int main(void)
 {
-	srand(time(NULL));
-	char *valid_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-	int password_length = 8;
+	char *valid_chars
 	int random_index, i;
 
-	for (i = 0; i < password_length; i++)
+	valid_chars;= "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+	srand(time(NULL));
+
+	for (i = 0; i < 8; i++)
 	{
 		random_index = rand() % (sizeof(valid_chars) - 1);
 		printf("%c", valid_chars[random_index]);
