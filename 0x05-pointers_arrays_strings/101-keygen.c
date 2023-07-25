@@ -13,7 +13,7 @@ int main(void)
 	char *valid_chars;
 	int random_index, i;
 
-	valid_chars;= "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+	valid_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
 	srand(time(NULL));
 
