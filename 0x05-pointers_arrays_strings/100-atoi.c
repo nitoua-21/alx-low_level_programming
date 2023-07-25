@@ -5,24 +5,28 @@
  */
 int _atoi(char *s)
 {
-	int n;
-	int sign;
+	int n = 0;
+	int sign = 1;
+	int found_digit = 0;
 
-	sign = 1;
-	n = 0;
-
-	while (!(*s >= '0' && *s <= '9'))
+	while (*s)
 	{
 		if (*s == '-')
+		{
 			sign *= -1;
-		++s;
+		}
+		else if (*s >= '0' && *s <= '9')
+		{
+			n = n * 10 + (*s - '0');
+			found_digit = 1;
+		}
+		else if (found_digit)
+		{
+			break;
+		}
+		s++;
 	}
 
-	while (*s >= '0' && *s <= '9')
-	{
-		n = n * 10 + (*s - '0');
-		++s;
-	}
-
-	return (n * sign);
+	return (found_digit ? n * sign : 0);
 }
+
