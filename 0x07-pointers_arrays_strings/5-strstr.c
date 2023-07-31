@@ -9,28 +9,27 @@
  */
 char *_strstr(char *haystack, char *needle)
 {
-	unsigned int i, idx;
-
 	/*Return the haystack pointer if needle is an empty string*/
 	if (*needle == '\0')
 		return (haystack);
-
-
-	while (*needle != '\0')
+	while (*haystack != '\0')
 	{
-		for (i = 0; haystack[i] != '\0'; i++)
+		if (*needle == *haystack)
 		{
-			if (*needle == haystack[i])
-				idx = i;
-			while (*needle == haystack[i])
+			char *h = haystack;
+			char *n = needle;
+
+			while (*n != '\0' && *h == *n)
 			{
-				if (*needle == '\0')
-					return (haystack + idx);
-				++needle;
-				++i;
+				n++;
+				h++;
 			}
+			if (*n == '\0')
+				return (haystack);
+
 		}
-		++needle;
+		haystack++;
 	}
+
 	return (0);
 }
