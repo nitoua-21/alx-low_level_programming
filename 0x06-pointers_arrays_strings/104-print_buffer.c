@@ -1,52 +1,47 @@
+#include <stdio.h>
+#include <ctype.h>
 /**
- *print_buffer - prints a buffer.
- *@b: pointer to buffer
- *@size: size bytes of the buffer to be printed.
+ *print_b - prints a b.
+ *@b: pointer to b
+ *@size: size bytes of the b to be printed.
  */
-void print_buffer(char *b, int size)
+void print_b(char *b, int size)
 {
+	int offset, j, i;
+
 	if (size <= 0)
 	{
 		printf("\n");
 		return;
 	}
 
-	int i, j;
+	offset = 0;
 
-	for (i = 0; i < size; i += 10)
+	while (offset < size)
 	{
-		printf("%08x: ", i);
+		j = (size - offset < 10) ? (size - offset) : 10;
 
-		for (j = i; j < i + 10; j++)
+		printf("%08x: ", offset);
+
+		for (i = 0; i < 10; i++)
 		{
-			if (j < size)
-				printf("%02x", (unsigned char)b[j]);
+			if (i < j)
+				printf("%02x", b[offset + i]);
 			else
 				printf("  ");
 
-			if (j % 2)
+			if (i % 2)
 				printf(" ");
-
-			if (j == size - 1)
-			{
-				for (int k = 0; k < 10 - (size % 10); k++)
-				{
-					printf("  ");
-					if (k % 2)
-						printf(" ");
-				}
-			}
 		}
 
-		printf(" ");
-		for (j = i; j < i + 10 && j < size; j++)
+		for (i = 0; i < j; i++)
 		{
-			if (b[j] >= 32 && b[j] <= 126)
-				printf("%c", b[j]);
-			else
-				printf(".");
+			char c = b[offset + i];
+
+			printf("%c", (isprint(c) && c <= 127) ? c : '.');
 		}
 
 		printf("\n");
+		offset += 10;
 	}
 }
