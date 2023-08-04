@@ -2,6 +2,8 @@
 
 /**
  *main - prints the name of the program.
+ *@argc: arguments count
+ *@argv: arguments vector
  *
  *Return: 0 Always (Success)
  */
