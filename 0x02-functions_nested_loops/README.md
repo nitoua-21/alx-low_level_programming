@@ -1,4 +1,4 @@
-# ALX Sotware Engineering - 0x02. C - Functions, nested loops
+# ALX Software Engineering - 0x02. C - Functions, nested loops
 
 This repository contains a collection of C programming tasks that cover the topic of nested loops and their applications, functions and their utilization, distinguish between function declarations and definitions, prototypes, variable scopes, elucidate the significance of GCC flags such as `-Wall`, `-Werror`, `-pedantic`, `-Wextra`, and `-std=gnu89`, and unravel the concept of header files and their seamless integration using the `#include` directive.
 
