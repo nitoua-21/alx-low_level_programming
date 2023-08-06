@@ -38,7 +38,7 @@ void print_buffer(char *b, int size)
 		{
 			char c = b[offset + i];
 
-			printf("%c", (isprint(c))? c : '.');
+			printf("%c", (isprint(c)) ? c : '.');
 		}
 
 		printf("\n");
