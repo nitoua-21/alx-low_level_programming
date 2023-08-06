@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <ctype.h>
 /**
- *print_b - prints a b.
+ *print_buffer - prints a b.
  *@b: pointer to b
  *@size: size bytes of the b to be printed.
  */
-void print_b(char *b, int size)
+void print_buffer(char *b, int size)
 {
 	int offset, j, i;
 
@@ -38,7 +38,7 @@ void print_b(char *b, int size)
 		{
 			char c = b[offset + i];
 
-			printf("%c", (isprint(c) && c <= 127) ? c : '.');
+			printf("%c", (isprint(c))? c : '.');
 		}
 
 		printf("\n");
