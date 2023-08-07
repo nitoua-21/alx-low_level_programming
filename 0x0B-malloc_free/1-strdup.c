@@ -23,12 +23,13 @@ unsigned int _strlen(char *str)
  */
 char *_strdup(char *str)
 {
-	unsigned int i = 0;
+	unsigned int len, i = 0;
 	char *new_str;
 
 	if (str == NULL)
 		return (NULL);
-	new_str = malloc(sizeof(char) * _strlen(str));
+	len = _strlen(str);
+	new_str = malloc(sizeof(char) * len + 1);
 
 	if (new_str == NULL)
 		return (NULL);
