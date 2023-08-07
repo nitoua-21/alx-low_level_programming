@@ -1,5 +1,19 @@
 #include <stdlib.h>
 /**
+ *_strlen - length of the string.
+ *@str: string.
+ *
+ *Return: length of the string.
+ */
+unsigned int _strlen(char *str)
+{
+	if (*str == '\0')
+		return (0);
+	return (1 + _strlen(++str));
+}
+
+
+/**
  *_strdup - returns a pointer to a new string
  *which is a duplicate of the string str
  *@str: string
@@ -14,7 +28,7 @@ char *_strdup(char *str)
 
 	if (str == NULL)
 		return (NULL);
-	new_str = malloc(sizeof(*str));
+	new_str = malloc(sizeof(char) * _strlen(str));
 
 	if (new_str == NULL)
 		return (NULL);
