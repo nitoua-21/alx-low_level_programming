@@ -1,17 +1,5 @@
 #include <stdlib.h>
-/**
- *_strlen - evaluate the length of a string.
- *@str: string
- *
- *Return: Length of s.
- */
-unsigned int _strlen(char *str)
-{
-	if (*str == '\0')
-		return (0);
-	return (1 + _strlen(++str));
-}
-
+#include <stdio.h>
 /**
  *count_words - counts words in a string.
  *@str: string.
@@ -24,7 +12,7 @@ unsigned int count_words(char *str)
 
 	while (*str)
 	{
-		if (*str != ' ' && *(str - 1) == ' ')
+		if (*str != ' ' && (*(str + 1) == ' ' || *(str + 1) == '\0'))
 			count++;
 		++str;
 	}
@@ -40,30 +28,41 @@ unsigned int count_words(char *str)
  */
 char **strtow(char *str)
 {
-	unsigned int len = 0, wc = 0;
+	unsigned int len = 0, wc = 0, r = 0, i = 0, j;
 	char **words;
 
-	if (str == NULL || *str =='\0')
+	if (str == NULL || *str == '\0')
 		return (NULL);
-	wc = coun_words(str);
-	words = malloc(size(char *) * wc);
+	wc = count_words(str);
+	words = malloc(sizeof(char *) * wc);
 	if (words == NULL)
 		return (NULL);
 
-	for (i = 0; str[i] != '\0'; i++)
+	while (str[i] != '\0')
 	{
 
-		if (str[i] != ' ' && str[i - 1] == ' ')
+		if (str[i] != ' ')
 		{
-			j = 0;
-			while (*(str + 1) != ' ' || *str)
-				++j, ++str;
-			words[j] = malloc(sizeof(char) * j + 1);
-			if (words[j] == NULL)
+			len = 0;
+			while (str[i + len] != ' ' && str[i + len] != '\0')
+				++len;
+			words[r] = malloc(sizeof(char) * (len + 1));
+			if (words[r] == NULL)
 			{
-
+				for (j = 0; j < r; j++)
+					free(words[j]);
+				free(words);
+				return (NULL);
 			}
-
+			for (j = 0; j < len; j++)
+				words[r][j] = str[i + j];
+			words[r][j] = '\0';
+			r++;
+			i += len;
 		}
+		else
+			i++;
 	}
+	words[r] = NULL;
+	return (words);
 }
