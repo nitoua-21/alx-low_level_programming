@@ -3,7 +3,7 @@
  *array_range - creates an array of integers.
  *from min (included) to max (included)
  *@min: minimum
- @max: maximum
+ *@max: maximum
  *
  *Return:  pointer to the newly created array.
  */
@@ -14,10 +14,10 @@ int *array_range(int min, int max)
 
 	if (min > max)
 		return (NULL);
-	arr = malloc((max - min) * sizeof(int));
+	arr = malloc((max - min + 1) * sizeof(int));
 	if (arr == NULL)
 		return (NULL);
-	while (min < max)
+	while (min <= max)
 		arr[i++] = min++;
 	return (arr);
 }
