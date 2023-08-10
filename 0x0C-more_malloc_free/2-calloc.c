@@ -19,11 +19,14 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 	arr = malloc(nmemb * size);
 	if (arr == NULL)
+	{
+		free(arr);
 		return (NULL);
+	}
 
 	byte_ptr = (unsigned char *)arr;
 
 	for (i = 0; i < nmemb; i++)
-		byte_ptr[i] = 0;
+		byte_ptr[i] = (unsigned char)0;
 	return (arr);
 }
