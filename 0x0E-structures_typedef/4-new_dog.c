@@ -62,6 +62,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 		}
 		a_dog->name = _strcpy(name_cp, name);
 	}
+	else
+		a_dog-> name = NULL;
+
 	if (owner)
 	{
 		owner_cp = malloc(_strlen(owner) + 1);
@@ -73,6 +76,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 			return (NULL);
 		}
 	}
+	else
+		a_dog->owner = NULL;
+
 	a_dog->age = age;
 
 	return (a_dog);
