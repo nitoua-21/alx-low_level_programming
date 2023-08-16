@@ -30,12 +30,12 @@ int main(int argc, char *argv[])
 	if (!op_func)
 	{
 		printf("Error\n");
-		exit(98);
+		exit(99);
 	}
 	if (num2 == 0 && (argv[2][0] == '%' || argv[2][0] == '/'))
 	{
 		printf("Error\n");
-		exit(98);
+		exit(100);
 	}
 	printf("%d\n", op_func(num1, num2));
 
