@@ -5,7 +5,7 @@
  * main - Entry point
  * @argc: argument count
  * @argv: argument vector
- * 
+ *
  * Description: prints the opcodes of its own main function.
  *
  * Return: 0 (Success)
@@ -31,6 +31,7 @@ int main(int argc, char *argv[])
 	for (i = 0; i < num_bytes; i++)
 	{
 		unsigned char opcode = *(unsigned char *)main_ptr;
+
 		printf("%02x", opcode);
 
 		if (i == num_bytes - 1)
