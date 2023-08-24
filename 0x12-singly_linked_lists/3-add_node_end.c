@@ -15,7 +15,7 @@ unsigned int _strlen(const char *str)
 	return (i);
 }
 /**
- * add_node - adds a new node at the end of a list_t list.
+ * add_node_end - adds a new node at the end of a list_t list.
  * @head: head node
  * @str: data
  *
