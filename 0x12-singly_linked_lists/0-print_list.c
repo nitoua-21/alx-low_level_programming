@@ -9,8 +9,13 @@
 size_t print_list(const list_t *h)
 {
 	list_t node = *h;
-	list_t *nodePtr = &node;
+	list_t *nodePtr;
 	size_t count = 0;
+
+	nodePtr = malloc(sizeof(list_t *));
+	if (nodePtr == NULL)
+		return (0);
+	nodePtr = &node;
 
 	while (nodePtr != NULL)
 	{
@@ -23,5 +28,6 @@ size_t print_list(const list_t *h)
 		nodePtr = nodePtr->next;
 		count++;
 	}
+	free(nodePtr);
 	return (count);
 }
