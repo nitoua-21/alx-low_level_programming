@@ -42,19 +42,16 @@ int copy_files(const char *file_from, const char *file_to)
 	char buffer[BUFFER_SIZE];
 	ssize_t n_read, n_written;
 
+	/* Open or create destination file for writing */
+	fd_dest = open(file_to, O_CREAT | O_TRUNC | O_WRONLY, 0664);
+	if (fd_dest == -1)
+		print_error(99, file_to, 0);
 	/* Open source file for reading */
 	fd_source = open(file_from, O_RDONLY);
 	if (fd_source == -1)
 		print_error(98, file_from, 0);
-	/* Open or create destination file for writing */
-	fd_dest = open(file_to, O_CREAT | O_TRUNC | O_WRONLY, 0664);
-	if (fd_dest == -1)
-	{
-		close(fd_source);
-		print_error(99, file_to, 0);
-	}
 	/* Read from source and write to destination */
-	while ((n_read = read(fd_source, buffer, BUFFER_SIZE)) > 0)
+	while ((n_read = read(fd_source, buffer, BUFFER_SIZE)) != 0)
 	{
 		if (n_read == -1)
 		{
