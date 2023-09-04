@@ -7,10 +7,8 @@
  * @error: exit value or file descriptor error code
  * @filename:  name of the file
  * @fd: file descriptor value
- *
- * Return: 0 on success
  */
-int print_error(int error, const char *filename, int fd)
+void print_error(int error, const char *filename, int fd)
 {
 	switch (error)
 	{
@@ -27,7 +25,7 @@ int print_error(int error, const char *filename, int fd)
 			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 			break;
 		default:
-			return (0);
+			return;
 	}
 	exit(error);
 }
