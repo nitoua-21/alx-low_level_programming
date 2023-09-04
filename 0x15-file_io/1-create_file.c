@@ -30,7 +30,7 @@ int create_file(const char *filename, char *text_content)
 	if (text_content != NULL)
 	{
 		bytes_written = write(fd, text_content, len);
-		if (bytes_written == -1)
+		if (bytes_written == -1 || bytes_written != len)
 		{
 			close(fd);
 			return (-1);
