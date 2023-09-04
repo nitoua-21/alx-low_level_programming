@@ -7,6 +7,8 @@
  * @error: exit value or file descriptor error code
  * @filename:  name of the file
  * @fd: file descriptor value
+ *
+ * Return: 0 on success
  */
 int print_error(int error, const char *filename, int fd)
 {
