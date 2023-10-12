@@ -28,23 +28,25 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		return (node);
 	}
 	tmp = *h;
-	while (1)
+	if (idx == 0)
 	{
-		if (step == idx)
+		node->next = tmp;
+		tmp->prev = node;
+		*h = node;
+		return (node);
+	}
+	while (tmp != NULL && step < idx)
+	{
+		if (step == idx - 1)
 		{
-			node->prev = tmp->prev, node->next = tmp;
-			tmp->prev->next = node, tmp->prev = node;
+			node->prev = tmp, node->next = tmp->next;
+			if (tmp->next != NULL)
+				tmp->next->prev = node;
+			tmp->next = node;
 			return (node);
 		}
 		step++;
-		if (tmp->next == NULL)
-			break;
 		tmp = tmp->next;
-	}
-	if (idx == step)
-	{
-		tmp->next = node, node->prev = tmp;
-		return (node);
 	}
 	free(node);
 	return (NULL);
