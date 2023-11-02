@@ -8,7 +8,7 @@ void hash_table_print(const hash_table_t *ht)
 {
 	hash_node_t *current;
 	unsigned long i;
-	char comma = "";
+	char *comma = "";
 
 	if (ht == NULL || ht->array == NULL)
 		return;
