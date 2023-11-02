@@ -9,7 +9,7 @@ void hash_table_print(const hash_table_t *ht)
 	hash_node_t *current;
 	unsigned long i;
 
-	if (ht == NULL)
+	if (ht == NULL || ht->array == NULL)
 		return;
 
 	printf("{");
@@ -21,7 +21,7 @@ void hash_table_print(const hash_table_t *ht)
 		{
 			printf("'%s': '%s'", current->key, current->value);
 			current = current->next;
-			if ( current != NULL)
+			if (current != NULL)
 				printf(", ");
 		}
 	}
