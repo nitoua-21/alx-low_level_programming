@@ -38,8 +38,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 
 	current = ht->array[index];
-	ht->array[index] = new_node;
+	while (current && (strcmp(key, current->key) != 0))
+		current = current->next;
 	new_node->next = current;
+	ht->array[index] = new_node;
 
 	return (1);
 }
