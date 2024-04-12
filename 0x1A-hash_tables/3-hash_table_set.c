@@ -55,20 +55,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
         free(new_node);
         return (0);
     }
-	new_node->next = NULL;
-
-	/*Check for collusion*/
-	if (ht->array[index] == NULL)
-	{
-		ht->array[index] = new_node;
-	}
-	else
-	{
-		current = ht->array[index];
-
-		ht->array[index] = new_node;
-		new_node->next = current;
-	}
+    new_node->next = ht->array[index];
+	ht->array[index] = new_node;
 
 	return (1);
 }
