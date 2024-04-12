@@ -15,38 +15,59 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int index;
 
 	hash_node_t *new_node = NULL;
+    hash_node_t *current = NULL;
 
-	if (!*key)
+	if (ht == NULL || key == NULL || *key == '\0')
 		return (0);
 
-	new_node = malloc(sizeof(hash_node_t *));
+    index = key_index((const unsigned char *)key, ht->size);
+
+    /* Check if key already exists*/
+    current = ht->array[index];
+    while (current != NULL)
+    {
+        if (strcmp(current->key, key) == 0)
+        {
+            /* Key already exists, update value */
+            free(current->value);
+            current->value = strdup(value);
+            if (current->value == NULL)
+                return (0);
+            return (1);
+        }
+    }
+    /* Key does not exist, create new node */
+	new_node = malloc(sizeof(hash_node_t));
 	if (new_node == NULL)
 		return (0);
 
 	/*Create the new node*/
 	new_node->key = strdup(key);
+    if (new_node->key == NULL)
+    {
+        free(new_node);
+        return (0);
+    }
 	new_node->value = strdup(value);
+    if (new_node->value == NULL)
+    {
+        free(new_node->key);
+        free(new_node);
+        return (0);
+    }
 	new_node->next = NULL;
 
-	if (!new_node->key || !new_node->value)
-	{
-		free(new_node);
-		return (0);
-	}
-
-	index = key_index((const unsigned char *)key, ht->size);
-
-	/*Check if there a value at index*/
+	/*Check for collusion*/
 	if (ht->array[index] == NULL)
 	{
 		ht->array[index] = new_node;
 	}
 	else
 	{
-		hash_node_t *tmp = ht->array[index];
+		current = ht->array[index];
 
 		ht->array[index] = new_node;
-		new_node->next = tmp;
+		new_node->next = current;
 	}
 
 	return (1);
