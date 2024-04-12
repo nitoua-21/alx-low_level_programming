@@ -1,0 +1,3 @@
+*.aout
+*main.c
+.vscode/
