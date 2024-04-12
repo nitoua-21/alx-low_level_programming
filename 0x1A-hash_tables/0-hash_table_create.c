@@ -3,14 +3,14 @@
 /**
 * hash_table_create - Creates a hash table
 *
-* @size: size of the arry
+* @size: size of the array
 *
 * Return:  pointer to the newly created hash table or NULL
 */
 hash_table_t *hash_table_create(unsigned long int size)
 {
-	hash_table_t *table = malloc(sizeof(hash_node_t));
-	unsigned long i = 0;
+	hash_table_t *table = malloc(sizeof(hash_table_t));
+	unsigned long int i;
 
 
 	if (table == NULL)
@@ -24,7 +24,7 @@ hash_table_t *hash_table_create(unsigned long int size)
 		return (NULL);
 	}
 
-	for (; i < size; i++)
+	for (i = 0; i < size; i++)
 		table->array[i] = NULL;
 
 	return (table);
