@@ -28,6 +28,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new_node->value = strdup(value);
 	new_node->next = NULL;
 
+	if (!new_node->key || !new_node->value)
+	{
+		free(new_node);
+		return (0);
+	}
+
 	index = key_index((const unsigned char *)key, ht->size);
 
 	/*Check if there a value at index*/
