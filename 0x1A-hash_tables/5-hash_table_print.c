@@ -22,12 +22,12 @@ void hash_table_print(const hash_table_t *ht)
 		first = ht->array[i];
 		if (first != NULL)
 		{
-			if (++count != 1)
-			{
-				printf(", ");
-			}
 			while (first != NULL)
 			{
+				if (++count != 1)
+				{
+					printf(", ");
+				}
 				printf("'%s': '%s'", first->key, first->value);
 				first = first->next;
 			}
